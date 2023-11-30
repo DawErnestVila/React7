@@ -29,5 +29,10 @@
     "prettier-plugin-tailwindcss": "^0.5.7",
     "tailwindcss": "^3.3.5",
     "vite": "^4.4.5"
-  }
+  },
+  "description": "En aquest project anem a fer un porgrama de gestió de clients típic. CRM, per si no t'ho havies preguntat, vol dir Customer Relationship Management.",
+  "main": "vite.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
