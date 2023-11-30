@@ -402,7 +402,7 @@ const clients = [
 
 Si no has borrat el `console.log` del `useLoaderData` veuràs que ara es mostra l'array que hem creat. Com pots imaginar, ara ja estem en disposició de mostrar aquestes dades al nostre component `Index`.
 
-### Mostrant Clients
+### REPTE! Mostrant Clients
 
 Repte! Reanomenem la variable `data` per `clients` perquè sigui més descriptiva:
 
@@ -410,6 +410,8 @@ Repte! Reanomenem la variable `data` per `clients` perquè sigui més descriptiv
 const clients = useLoaderData();
 ```
 
-Ara, partint de la base que si la variable `clients` no està buida `clients.lengt` i fent ús taula `html`, mostra els clients que tenim a l'array que hem creat de manera similar a com mostrem en la següent imatge:
+Ara, partint de la base que si la variable `clients` no està buida i fent 'us d'una taula `html`, mostra els clients que tenim a l'array que hem creat de manera similar a com mostrem en la següent imatge:
 
 ![Clients](/assets/taula_clients.png)
+
+Segurament hagis optat per crear l'estrcutrua directament al component `Index` però aquest seria un bon moment per crear un nou component (reutilitzable!) anomenat `Client.jsx` a la carpeta `components` i utilitzar-lo al `Index`.
