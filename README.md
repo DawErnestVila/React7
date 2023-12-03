@@ -418,7 +418,82 @@ Segurament hagis optat per crear l'estrcutrua directament al component `Index` p
 
 ### Solució - Ho tens?
 
-Aquí tens una possible solució. En primer lloc l'arxiu `Index.jsx`:
+Aquí tens una possible solució:
+
+Pel que fa al component `Client.jsx`:
+
+```jsx
+import React from 'react';
+
+const Client = ({ client }) => {
+  const { nom, empresa, email, telefon, id } = client;
+  // Tailwind tip: "space" va molt bé per separar tots els elements sense haver de fer-ho individualment!
+  return (
+    <tr className="border-b">
+      <td className="space-y-2 p-6">
+        <p className="text-2xl  text-gray-800">{nom}</p>
+        <p>{empresa}</p>
+      </td>
+      <td className="p-6">
+        <p>
+          <span className="font-bold uppercase text-gray-800">Email: </span>
+          {email}
+        </p>
+        <p>
+          <span className="font-bold uppercase text-gray-800">Telèfon: </span>
+          {telefon}
+        </p>
+      </td>
+      <td className="p-6">
+        <div className="flex justify-center">
+          <button
+            type="button"
+            className="grow-1 mr-2 flex items-center justify-center rounded bg-green-200 px-4 py-2 text-xs font-bold uppercase text-green-800"
+          >
+            Editar
+            <svg
+              className="ml-2 h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                d="M6 18L18 6M6 6l12 12"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+              />
+            </svg>
+          </button>
+          <button
+            type="button"
+            className="grow-1 flex items-center justify-center rounded bg-red-200 px-4 py-2 text-xs font-bold uppercase text-red-800"
+          >
+            Eliminar
+            <svg
+              className="ml-2 h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                d="M6 18L18 6M6 6l12 12"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+              />
+            </svg>
+          </button>
+        </div>
+      </td>
+    </tr>
+  );
+};
+
+export default Client;
+```
+
+A continuaciói l'arxiu `Index.jsx`:
 
 ```jsx
 import React from 'react';
@@ -464,7 +539,7 @@ const Index = () => {
 export default Index;
 ```
 
-I a continuació el nou component `Client.jsx` que on anirem implementant les diferents funcions habituals per a la gestió de clients. Ara en concret amb `obtenirClients`:
+I a finalment el un nou component `Clients.jsx` on anirem implementant les diferents funcions habituals per a la gestió de clients. Ara en concret amb `obtenirClients`:
 
 ```jsx
 export const obtenirClients = async () => {
@@ -474,11 +549,11 @@ export const obtenirClients = async () => {
 };
 ```
 
-Anem a canviar algunes coses de la nostra taula sobretot a nivell d'estils. Et proposo que intentis també arribar a una proposta similar a la següent:
+He fet alguns canvis a nivell d'estil. Aplica els teus propis estils intentant arribar a una proposta similar a la següent:
 
 ![Clients](/assets/client_nou.webp)
 
-Els botons els he generat amb l'ajut de copilot donant-li un parell d'idees. Prova-ho!
+Pots generar molts estils de manera molt ràpida amb l'ajuda de copilot donant-li un parell d'idees. Prova-ho!
 
 Segurament el mateix botó seria candidat a ser un component reutilitzable. De moment no ho farem però pots imaginar que és una bona idea!
 
