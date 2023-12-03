@@ -418,7 +418,7 @@ Segurament hagis optat per crear l'estrcutrua directament al component `Index` p
 
 ### Solució - Ho tens?
 
-Si no ho tens, aquí tens una possible solució. En primer lloc l'arxiu `Index.jsx`:
+Aquí tens una possible solució. En primer lloc l'arxiu `Index.jsx`:
 
 ```jsx
 import React from 'react';
@@ -466,12 +466,13 @@ export default Index;
 
 I a continuació el nou component `Client.jsx` que on anirem implementant les diferents funcions habituals per a la gestió de clients. Ara en concret amb `obtenirClients`:
 
-````jsx
-import React from 'react';
-
-
-
-
+```jsx
+export const obtenirClients = async () => {
+  const resposta = await fetch(import.meta.env.VITE_API_URL);
+  const resultat = await resposta.json();
+  return resultat;
+};
+```
 
 Anem a canviar algunes coses de la nostra taula sobretot a nivell d'estils. Et proposo que intentis també arribar a una proposta similar a la següent:
 
@@ -512,7 +513,7 @@ const NouClient = () => {
 };
 
 export default NouClient;
-````
+```
 
 Ens fem un botó que ens permeti tornar a la pàgina anterior. Aquí és interessant aturar-se i parlar d'un nou `hook`, `useNavigate`. Referència oficial [Aquí](https://reactrouter.com/en/main/hooks/use-navigate).
 
