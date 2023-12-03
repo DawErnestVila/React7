@@ -286,7 +286,7 @@ Hi ha una manera també de fer-ho amb un component anomenat `NavLink` però que 
 
 ### Creant un "Loader"
 
-Anem a suposar que aquesta pàgina `Index` serà l'encarregada de mostrar un llistat de clients. Aquests segurament vindrien d'una API, triguin una mica en obtenirse i finalment els tindriem en una variable d'estat del component. En el cas de React Router DOM, això ja no és fa amb un `useState` o `useEffect` sino que han incorporat una funció anomenada `loader` i que és una funció que hem d'exportar per tal d'utilitzar com a part del `Route`. És similar a un `useEffect` i que es dispararà quan el component es carregui. Aquest SEMPRE HA DE RETORNAR QUELCOM!
+Anem a suposar que aquesta pàgina `Index` serà l'encarregada de mostrar un llistat de clients. Aquests, tal i com ho havíem vist fins ara, els acabaríem emmagatzemant en una variable d'estat (`useState`) després de fer una petició a una API. **En el cas de React Router DOM, això ja no és fa amb un `useState` o `useEffect` sino que han incorporat una funció anomenada `loader`** i que és una funció que hem d'exportar per tal d'utilitzar com a part del `Route`. És similar a un `useEffect` i que es dispararà quan el component es carregui. Aquest SEMPRE HA DE RETORNAR QUELCOM!
 
 Necessitem fer dues passes:
 
@@ -416,7 +416,7 @@ Ara, partint de la base que si la variable `clients` no està buida i fent 'us d
 
 Segurament hagis optat per crear l'estrcutrua directament al component `Index` però aquest seria un bon moment per crear un nou component (reutilitzable!) anomenat `Client.jsx` a la carpeta `components` i utilitzar-lo al `Index`.
 
-Molt bé, ho tens?
+### Solució - Ho tens?
 
 Anem a canviar algunes coses de la nostra taula sobretot a nivell d'estils. Et proposo que intentis també arribar a una proposta similar a la següent:
 
