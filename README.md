@@ -418,6 +418,61 @@ Segurament hagis optat per crear l'estrcutrua directament al component `Index` p
 
 ### Solució - Ho tens?
 
+Si no ho tens, aquí tens una possible solució. En primer lloc l'arxiu `Index.jsx`:
+
+```jsx
+import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import Client from '../components/Client';
+import { obtenirClients } from '../data/Clients';
+
+export const loader = () => {
+  const clients = obtenirClients();
+  return clients;
+};
+
+const Index = () => {
+  const clients = useLoaderData();
+  return (
+    <>
+      <h1 className="mb-2 text-center text-3xl font-black text-indigo-700">
+        Clients
+      </h1>
+      <p className="mt-3 text-center">Administra els teus clients</p>
+      {clients.length ? (
+        <table className="mt-10 w-full table-auto bg-white">
+          <thead className="bg-indigo-700 text-white">
+            <tr>
+              <th className="py-2">Nom</th>
+              <th className="py-2">Email</th>
+              <th className="py-2">Accions</th>
+            </tr>
+          </thead>
+          <tbody className="text-center">
+            {clients.map((client) => (
+              <Client key={client.id} client={client} />
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p className="mt-3 text-center">No hi ha clients</p>
+      )}
+    </>
+  );
+};
+
+export default Index;
+```
+
+I a continuació el nou component `Client.jsx` que on anirem implementant les diferents funcions habituals per a la gestió de clients. Ara en concret amb `obtenirClients`:
+
+````jsx
+import React from 'react';
+
+
+
+
+
 Anem a canviar algunes coses de la nostra taula sobretot a nivell d'estils. Et proposo que intentis també arribar a una proposta similar a la següent:
 
 ![Clients](/assets/client_nou.webp)
@@ -457,7 +512,7 @@ const NouClient = () => {
 };
 
 export default NouClient;
-```
+````
 
 Ens fem un botó que ens permeti tornar a la pàgina anterior. Aquí és interessant aturar-se i parlar d'un nou `hook`, `useNavigate`. Referència oficial [Aquí](https://reactrouter.com/en/main/hooks/use-navigate).
 
