@@ -423,6 +423,7 @@ Aquí tens una possible solució:
 Pel que fa al component `Client.jsx`:
 
 ```jsx
+// Client.jsx
 import React from 'react';
 
 const Client = ({ client }) => {
@@ -496,6 +497,7 @@ export default Client;
 A continuaciói l'arxiu `Index.jsx`:
 
 ```jsx
+// Index.jsx
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Client from '../components/Client';
@@ -542,6 +544,7 @@ export default Index;
 I a finalment el un nou component `Clients.jsx` on anirem implementant les diferents funcions habituals per a la gestió de clients. Ara en concret amb `obtenirClients`:
 
 ```jsx
+// Clients.jsx
 export const obtenirClients = async () => {
   const resposta = await fetch(import.meta.env.VITE_API_URL);
   const resultat = await resposta.json();
